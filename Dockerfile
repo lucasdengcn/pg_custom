@@ -133,4 +133,4 @@ COPY --from=build /usr/share/postgresql/${PGVERSION}/extension/anon* /usr/share/
 # pg_cron,pgaudit,pgoutput,anon,decoderbufs,wal2json
 RUN echo "shared_preload_libraries='pg_cron,pgoutput,anon,decoderbufs,wal2json'" >> /usr/share/postgresql/postgresql.conf.sample
 
-RUN rm -rf /var/lib/apt/lists/*
+RUN apt-get clean && rm -rf /var/lib/apt/lists /var/cache/apt/archives
