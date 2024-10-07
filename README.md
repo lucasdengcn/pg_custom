@@ -1,4 +1,4 @@
-## Base image
+# Base image
 
 PostgreSQL 16-bullseye
 
@@ -8,3 +8,10 @@ PostgreSQL 16-bullseye
 * pgvector
 * pg_embedding
 * anon
+* decoderbufs
+* wal2json
+* postgis
+* pgrouting
+* pg_duckdb
+* cron
+* pgagent
