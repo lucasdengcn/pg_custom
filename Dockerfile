@@ -48,6 +48,7 @@ RUN apt-get update \
     libxml2-dev \
     libxslt-dev \
     libssl-dev \
+    libkrb5-dev \
     libxml2-utils \
     xsltproc \
     zlib1g-dev \
@@ -73,13 +74,12 @@ RUN cd /tmp/; \
     make OPTFLAGS="" ; \
     make install ; 
 
-# pgembedding can't coexist with pgvector
-# RUN cd /tmp/; \
-#     tar -zxvf pg_embedding-0.3.6.tar.gz; \
-#     cd pg_embedding-0.3.6 ; \
-#     make ; \
-#     make install ; \
-#     ls -ahl;
+# pgaudit
+RUN cd /tmp/; \
+    git clone https://github.com/pgaudit/pgaudit.git; \
+    cd pgaudit ; \
+    git checkout REL_16_STABLE; \
+    make install USE_PGXS=1 PG_CONFIG=/usr/bin/pg_config;
 
 # pg_partman
 RUN cd /tmp/; \

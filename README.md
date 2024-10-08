@@ -15,3 +15,4 @@ PostgreSQL 16-bullseye
 * pg_duckdb
 * cron
 * pgagent
+* pgaudit
